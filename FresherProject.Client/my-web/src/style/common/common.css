@@ -1,0 +1,75 @@
+#app {
+}
+body {
+    margin: 0;
+    font-family: GoogleSans-Regular; 
+    font-size: 13px;
+}
+.router-view{
+    width: 100%;
+}
+@font-face {
+    font-family: 'GoogleSans-Regular';
+    src: url('../../assets/content/fonts/notosans-regular.2cb88a13.woff2') format('opentype');
+}
+@font-face {
+    font-family: 'GoogleSans-Bold';
+    src: url('../../assets/content/fonts/notosans-bold.3ede5aff.woff2') format('opentype');
+}
+@font-face {
+    font-family: 'GoogleSans-Italic';
+    src: url('../../assets/content/fonts/notosans-italic.1c1aaac9.woff2') format('opentype');
+}
+::-webkit-input-placeholder {
+   font-style: italic;
+   font-family: GoogleSans-Regular;
+}
+:-moz-placeholder {
+   font-style: italic;  
+   font-family: GoogleSans-Regular;
+
+}
+::-moz-placeholder {
+   font-style: italic;  
+   font-family: GoogleSans-Regular;
+
+}
+:-ms-input-placeholder {  
+   font-style: italic; 
+   font-family: GoogleSans-Regular;
+
+}
+input {
+    padding: 10px 16px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #bbbbbb;
+}
+select {
+    padding: 10px 16px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #bbbbbb;
+}
+.input-search {
+  width: 250px;
+  padding-left: 14px;
+}
+.cbx-search {
+    padding-left: 14px;
+    margin-right: 14px;
+    width: 180px;
+}
+input:focus {
+    border: 1px solid #01b075 !important;
+}
+input.border-red {
+    border: 1px solid #FF4747;
+}
+.btn-haveicon {
+    padding-left: 40px;
+    padding-right: 16px;
+    /* margin-right: 16px; */
+    background-repeat: no-repeat;
+    background-position: 16px center;
+}

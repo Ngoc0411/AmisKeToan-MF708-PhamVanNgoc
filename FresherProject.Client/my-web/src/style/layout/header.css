@@ -1,0 +1,133 @@
+.icon-search {
+  background-image: url("../../assets/content/icon/search.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: 170px 4px;;
+  background-size: 25px;
+}
+.input-search-key{
+      width: 175px !important;
+}
+.header {
+  display: flex;
+  width: 100%;
+  height: 60px;
+}
+.header-left{
+  width: 200px;
+  align-items: center;
+  background-color: #393A3E;
+}
+.header-left .logo {
+    display: flex;
+    align-items: center;
+    /* width: 100%; */
+    padding-left: 14px;
+    padding-top: 10px;
+}
+.header-left .logo .expend-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url('../../assets/content/img/toggle.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.header-left .logo .logo-page {
+    width: 104px;
+    height: 34px;
+    background-image: url('../../assets/content/img/amis-logo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 3px;
+}
+/* .header-left .logo .name-page {
+  text-transform: uppercase;
+  color: #ffff;
+  font-family: GoogleSans-Bold;
+  margin-left: 7px;
+} */
+.header-right {
+    width: 100%;
+    height: 59px;
+    display: flex;
+    align-items: center;
+}
+select {
+    padding: 10px 16px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #bbbbbb;
+}
+select:hover{
+  cursor: pointer;
+}
+.header-right .chooseTheCompany .selectCompany {
+    float: left;
+    border: hidden;
+    text-align: center;
+    padding: 16px;
+}
+.header-right .records {
+    display: flex;
+    float: right;
+    /* width: 220px; */
+    /* height: 100%; */
+    position: absolute;
+    right: 16px;
+    align-items: center;
+}
+.header-right .records .icon-records{
+  margin-right: 14px;
+}
+
+.header-right .records .icon-notif{
+  background: url('../../assets/content/icon/list-icon.svg') no-repeat -788px -30px;
+	width: 22px;
+	height: 25px;
+}
+.header-right .records .icon-question{
+  background: url('../../assets/content/icon/list-icon.svg') no-repeat -732px -31px;
+	width: 22px;
+	height: 22px;
+}
+.header-right .records .icon-messenger{
+  background: url('../../assets/content/icon/list-icon.svg') no-repeat -899px -30px;
+	width: 24px;
+	height: 25px;
+}
+.header-right .records .icon-setting{
+  background: url('../../assets/content/icon/list-icon.svg') no-repeat -676px -30px;
+	width: 23px;
+	height: 24px;
+}
+.header-right .records .icon-more-infor{
+  background: url('../../assets/content/icon/list-icon.svg') no-repeat -568px -30px;
+	width: 24px;
+	height: 24px;
+}
+.header-right .records .picture {
+    width: 42px;
+    height: 42px;
+    background-image: url('../../assets/content/icon/avatar-default.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.header-right .records .fullname {
+    width: 120px;
+    height: 42px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+.header-right .records .icon {
+    width: 30px;
+    height: 42px;
+    background-image: url('../../assets/content/icon/icon-down.png');
+    opacity : 0.2;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}

@@ -161,14 +161,6 @@ export default {
     this.getEmployees();
   },
   computed:{
-    // filterListEmployee(){
-    //   return this.listEmployee.filter((employee) => {
-    //     return this.filterSearch.toLowerCase().split(' ').every(v => 
-    //        employee.FullName.toLowerCase().includes(v) 
-    //     || employee.EmployeeCode.toLowerCase().includes(v) 
-    //     );
-    //   })
-    // }
   },
   methods: {
     /// Hàm thực hiện tìm kiếm nhân viên theo filterSearch
@@ -233,7 +225,8 @@ export default {
     /// Hàm thực hiện mở dialog chi tiết nhân viên
     /// createdBy NgocPham (24/02/2021)
     async showEmployeeProfileDetail(item, isUpdate){
-      await this.$refs.EmployeeProfileDetail.ShowDetail(item, isUpdate, this.maxEmployeeCodeString);
+      if(isUpdate === false) item.EmployeeCode = this.maxEmployeeCodeString;
+      this.$refs.EmployeeProfileDetail.ShowDetail(item, isUpdate);
       this.isHideDetail = false;
     },
     /// Hàm thực hiện gọi server để lấy dữ liệu
@@ -256,7 +249,6 @@ export default {
 
         number = this.maxEmployeeCode + 1;
         this.maxEmployeeCodeString =  "NV" + number; 
-        console.log("max code: ",this.maxEmployeeCodeString);
     },
     /// Hàm thực hiện đóng các dialog/ popup
     /// createdBy NgocPham (24/02/2021)

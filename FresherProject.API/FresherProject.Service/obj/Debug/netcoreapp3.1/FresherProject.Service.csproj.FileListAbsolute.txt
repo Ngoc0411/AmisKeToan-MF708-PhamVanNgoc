@@ -46,3 +46,19 @@ C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\Freshe
 C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.Service\obj\Debug\netcoreapp3.1\FresherProject.Service.csproj.CopyComplete
 C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.Service\obj\Debug\netcoreapp3.1\FresherProject.Service.dll
 C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.Service\obj\Debug\netcoreapp3.1\FresherProject.Service.pdb
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\bin\Debug\netcoreapp3.1\FresherProject.Service.deps.json
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\bin\Debug\netcoreapp3.1\FresherProject.Service.dll
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\bin\Debug\netcoreapp3.1\FresherProject.Service.pdb
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\bin\Debug\netcoreapp3.1\FresherProject.Common.dll
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\bin\Debug\netcoreapp3.1\FresherProject.DataLayer.dll
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\bin\Debug\netcoreapp3.1\FresherProject.Common.pdb
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\bin\Debug\netcoreapp3.1\FresherProject.DataLayer.pdb
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\obj\Debug\netcoreapp3.1\FresherProject.Service.csprojAssemblyReference.cache
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\obj\Debug\netcoreapp3.1\FresherProject.Service.Properties.Resources.resources
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\obj\Debug\netcoreapp3.1\FresherProject.Service.csproj.GenerateResource.cache
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\obj\Debug\netcoreapp3.1\FresherProject.Service.AssemblyInfoInputs.cache
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\obj\Debug\netcoreapp3.1\FresherProject.Service.AssemblyInfo.cs
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\obj\Debug\netcoreapp3.1\FresherProject.Service.csproj.CoreCompileInputs.cache
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\obj\Debug\netcoreapp3.1\FresherProject.Service.csproj.CopyComplete
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\obj\Debug\netcoreapp3.1\FresherProject.Service.dll
+C:\Users\DELL\OneDrive\Máy tính\AmisKeToanMF708PhamVanNgoc\FresherProject.API\FresherProject.Service\obj\Debug\netcoreapp3.1\FresherProject.Service.pdb

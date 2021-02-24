@@ -386,7 +386,6 @@ export default {
       iconSave: require("../../assets/content/icon/save.png"),
       isBodyContact: true,
       isUpdate: false,
-      MaxEmployeeCode: 0,
       checkValidateEmployee: true,
       isHideErrorIdentityCardNumber: true,
       isHideErrorEmployeeCode: true,
@@ -394,12 +393,18 @@ export default {
       errorMsgEmployeeCode: "",
       errorMsgFullName:"",
       isHideErrorEmployeeDepartment: true,
-      maxEmployeeCode: 0,
 
       contentTextAlert: "",
       isHideAlert: true,
       imageAlert: "",
       colorAlert: "",
+
+      //Các biến để check các điều kiện
+      checkDuplicateIdentityCardNumber: true,
+      checkDuplicateEmployeeCode: true,
+      checkRequireEmployeeCode: true,
+      checkRequireFullName:true,
+      checkRequireDepartment: true,
 
     };
   },
@@ -434,40 +439,18 @@ export default {
     focusToEmployeeCode(){
       this.$refs.txtEmployeeCode.focus();
     },
-    ganEmployeeCodeMax(maxEmployeeCode){
-      console.log("max code o detail: ", maxEmployeeCode);
-      this.Employee.EmployeeCode = maxEmployeeCode;
-      console.log("max code o detail: ", this.Employee.EmployeeCode);
-    },
     /// Hàm thực hiện gán các giá trị của đối tượng lên dialog chi tiết và hiện form chi tiết lên
     /// createdBy NgocPham (24/02/2021)
-    async ShowDetail(item, isUpdate, maxEmployeeCode) {
+    async ShowDetail(item, isUpdate) {
       this.Employee = await item;
       this.isUpdate = await isUpdate;
 
       if(isUpdate){
         this.Employee.IssuedOn = await this.formatDate(this.Employee.IssuedOn);
         this.Employee.DateOfBirth = await this.formatDate(this.Employee.DateOfBirth);
-      }else{
-        // await this.getEmployees();
-        //await this.getMaxEmployeeCode();
-        console.log(maxEmployeeCode);
-        //this.Employee.EmployeeCode = "maxEmployeeCode";
-        await this.ganEmployeeCodeMax(maxEmployeeCode);
       }
-      this.focusToEmployeeCode();
+      await this.focusToEmployeeCode();
     },
-    /// Hàm thực hiện lấy ra mã nhân viên lớn nhất trong danh sách nhân viên
-    /// createdBy NgocPham (24/02/2021)
-    // async getMaxEmployeeCode() {
-    //   await axios
-    //     .get("https://localhost:44312/api/v1/employees")
-    //     .then((response) => (
-    //       this.MaxEmployeeCode = response.data.Data[0].EmployeeCode
-    //     ));
-    //     var number = Number(this.MaxEmployeeCode.substring(2, this.MaxEmployeeCode.length)) + 1;
-    //     this.MaxEmployeeCode =  this.MaxEmployeeCode.substring(0,2) + number;  
-    // },
     /// Hàm thực hiện ẩn popup
     /// createdBy NgocPham (24/02/2021)
     btnCancelOnClick() {
@@ -502,67 +485,98 @@ export default {
           this.totalRecords = response.data.Data.length
         ));
     },
-    /// Hàm thực hiện kiểm tra trùng
-    /// createdBy NgocPham (24/02/2021)
-    checkDuplicate(){
-      this.getEmployees();
-      
-      console.log(this.Employee.IdentityCardNumber);
-
-      //Kiểm tra trùng số cmnd
-      if(this.Employee.IdentityCardNumber != null){
-        if(this.Employee.IdentityCardNumber !== undefined){
-          this.listEmployee.forEach(item => {
-            if(item.IdentityCardNumber == this.Employee.IdentityCardNumber && item.EmployeeId !== this.Employee.EmployeeId){
-              this.isHideErrorIdentityCardNumber = false;
-              this.checkValidateEmployee = false;
-            }
-          });
+    //Hàm kiểm tra số cmnd khi mà số cmnd khác rỗng
+    checkDuplicateIdentityCardNumberExceptionNull(){
+      this.listEmployee.forEach(item => {
+        if(item.IdentityCardNumber == this.Employee.IdentityCardNumber 
+          && item.EmployeeId !== this.Employee.EmployeeId){
+          this.isHideErrorIdentityCardNumber = false;
+          this.checkDuplicateIdentityCardNumber = false;
         }
-      }
+      });
+    },
+    //Hàm kiểm tra trùng số cmnd
+    /// createdBy NgocPham (24/02/2021)
+    ValidateDuplicateIdentityCardNumber(){
+      //Kiểm tra trùng số cmnd
+      if(this.Employee.IdentityCardNumber != null || this.Employee.IdentityCardNumber !== undefined)
+       this.checkDuplicateIdentityCardNumberExceptionNull();
+    },
+    //Hàm kiểm tra trùng mã nhân viên
+    /// createdBy NgocPham (24/02/2021)
+    ValidateDuplicateEmployeeCode(){
       //Kiểm tra trùng mã nhân viên
       this.listEmployee.forEach(item => {
         if(item.EmployeeCode == this.Employee.EmployeeCode && item.EmployeeId !== this.Employee.EmployeeId){
           this.errorMsgEmployeeCode = "Mã nhân viên đã bị trùng.";
           this.isHideErrorEmployeeCode = false;
-          this.checkValidateEmployee = false;
+          this.checkDuplicateEmployeeCode = false;
         }
       })
-      
     },
-    /// Hàm thực hiện validate dữ liệu trước khi sửa/ thêm mới
+    /// Hàm thực hiện check bắt buộc nhập employeecode
     /// createdBy NgocPham (24/02/2021)
-    validateEmployee(){
-      this.checkDuplicate();
-
+    ValidateRequireEmployeeCode(){
       if(this.checkRequiredInput(this.Employee.EmployeeCode)==false){
         this.errorMsgEmployeeCode = "Mã nhân viên không được để trống.";
         this.isHideErrorEmployeeCode = false;
-        this.checkValidateEmployee = false;
+        this.checkRequireEmployeeCode = false;
+      }else{
+        this.checkRequireEmployeeCode = true;
       }
-
+    },
+    /// Hàm thực hiện check bắt buộc nhập fullname
+    /// createdBy NgocPham (24/02/2021)
+    ValidateRequireFullName(){
       if(this.checkRequiredInput(this.Employee.FullName)==false){
         this.errorMsgFullName = "Tên nhân viên không được để trống."
         this.isHideErrorFullName = false;
-        this.checkValidateEmployee = false;
+        this.checkRequireFullName = false;
       }else{
         this.isHideErrorFullName = true;
+        this.checkRequireFullName = true;
       }
+    },
+    /// Hàm thực hiện check bắt buộc chọn employeeDepartment
+    /// createdBy NgocPham (24/02/2021)
+    ValidateRequireDepartment(){
       if(this.checkRequiredInput(this.Employee.EmployeeDepartmentId)==false){
         this.isHideErrorEmployeeDepartment = false;
-        this.checkValidateEmployee = false;
+        this.checkRequireDepartment = false;
       }else{
         this.isHideErrorEmployeeDepartment = true;
+        this.checkRequireDepartment = true;
       }
-
-      
     },
+    /// Hàm thực hiện validate dữ liệu sau khi nhấn cất/ Cất và thêm
+    /// createdBy NgocPham (24/02/2021)
     async saveEmployee(isSaveAndAddContinue) {
-      console.log(this.Employee);
+      //Get ds nhân viên để validate
+      await this.getEmployees();
 
       //Validate dữ liệu trước khi sửa/thêm mới
-      this.checkValidateEmployee = true;
-      this.validateEmployee();
+      this.ValidateDuplicateIdentityCardNumber();
+      this.ValidateDuplicateEmployeeCode();
+      this.ValidateRequireEmployeeCode();
+      this.ValidateRequireFullName();
+      this.ValidateRequireDepartment();
+
+      //Kiểm tra từng điều kiện
+      if(this.checkDuplicateIdentityCardNumber 
+      && this.checkDuplicateEmployeeCode 
+      && this.checkRequireEmployeeCode
+      && this.checkRequireFullName
+      && this.checkRequireDepartment)
+
+        this.checkValidateEmployee = true;
+
+      else this.checkValidateEmployee = false;
+
+      this.resetVariableCheck();
+
+      // await this.validateEmployee();
+
+      console.log(this.checkValidateEmployee);
 
       if(this.checkValidateEmployee){
         if(this.isUpdate){
@@ -581,8 +595,7 @@ export default {
             if(error != null) this.openAlertFail("Cập nhật nhân viên thất bại!");
           });
           console.log(response);
-        }
-        else{
+        }else{
           if(this.Employee.DateOfBirth == undefined) this.Employee.DateOfBirth = "2000-11-04";
           if(this.Employee.IssuedOn == undefined) this.Employee.IssuedOn = "2000-11-04";
 
@@ -605,8 +618,7 @@ export default {
           console.log(response);
         }
         this.deleteErrorMsg();
-      }
-      else{
+      }else{
         if(this.isUpdate){
           //Mở thông báo xóa thất bại
           this.openAlertFail("Cập nhật nhân viên thất bại!");
@@ -615,6 +627,13 @@ export default {
           this.openAlertFail("Thêm nhân viên thất bại!");
         }
       }
+    },
+    resetVariableCheck(){
+      this.checkDuplicateIdentityCardNumber = true ;
+      this.checkDuplicateEmployeeCode = true ;
+      this.checkRequireEmployeeCode = true;
+      this.checkRequireFullName = true;
+      this.checkRequireDepartment = true;
     },
     async getListEmployeeDepartment() {
       await axios
@@ -649,7 +668,6 @@ export default {
   },
   created() {
     this.getListEmployeeDepartment();
-    // this.getMaxEmployeeCode();
   },
 };
 </script>

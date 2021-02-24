@@ -12,14 +12,10 @@ namespace FresherProject.DataLayer.Database
     public class EmployeeRepository : DBConnector<Employee>, IEmployeeRepository
     {
         /// <summary>
-        /// Lấy 100 nhân viên đầu tiên
-        /// </summary>x
-        /// <returns></returns>
-        //public IEnumerable<Employee> GetEmployeeTop100()
-        //{
-        //    return GetAllData("SELECT * FROM Employee LIMIT 100");
-        //}
-
+        /// Lấy ra danh sách employee
+        /// </summary>
+        /// <returns>list employee</returns>
+        /// Created By: PVNgoc (24/02/2021)
         public override IEnumerable<Employee> GetAllData()
         {
             var storeName = $"Proc_GetEmployees";
@@ -33,7 +29,12 @@ namespace FresherProject.DataLayer.Database
 
             return (IEnumerable<Employee>)entitys;
         }
-
+        /// <summary>
+        /// lấy ra employee theo id
+        /// </summary>
+        /// <param name="id">id của nhân viên cần lấy</param>
+        /// <returns>Employee</returns>
+        /// Created By: PVNgoc (24/02/2021)
         public override IEnumerable<Employee> GetById(Guid id)
         {
             var tableName = typeof(Employee).Name;
@@ -47,6 +48,12 @@ namespace FresherProject.DataLayer.Database
             }, dynamicParameters, splitOn: "EmployeeDepartmentId", commandType: CommandType.StoredProcedure);
             return (IEnumerable<Employee>)entitys;
         }
+        /// <summary>
+        /// Lấy ra danh sách nhân viên theo từ khóa cần tìm
+        /// </summary>
+        /// <param name="filter">từ khóa cần tìm</param>
+        /// <returns>danh sách employee</returns>
+        /// Created By: PVNgoc (24/02/2021)
         public override IEnumerable<Employee> GetByFilter(string filter)
         {
             var tableName = typeof(Employee).Name;

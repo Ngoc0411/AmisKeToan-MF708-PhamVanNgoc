@@ -35,15 +35,15 @@
         >
           <thead>
             <tr>
-              <th>Mã nhân viên</th>
-              <th>Tên nhân viên</th>
-              <th>Chức danh</th>
-              <th>Tên đơn vị</th>
-              <th>Số tài khoản</th>
-              <th>Tên ngân hàng</th>
-              <th>Trạng thái</th>
-              <th>Chi nhánh</th>
-              <th>Chức năng</th>
+              <th class="manhanvien">Mã nhân viên</th>
+              <th class="tennhanvien">Tên nhân viên</th>
+              <th class="chucdanh">Chức danh</th>
+              <th class="tendonvi">Tên đơn vị</th>
+              <th class="sotaikhoan">Số tài khoản</th>
+              <th class="tennganhang">Tên ngân hàng</th>
+              <th class="trangthai">Trạng thái</th>
+              <th class="chinhanh">Chi nhánh</th>
+              <th class="chucnang">Chức năng</th>
             </tr>
           </thead>
           <tbody>
@@ -142,6 +142,8 @@ export default {
       isUpdate: false,
       totalRecords: 0,
       contentText: "",
+      maxEmployeeCode: 0,
+      maxEmployeeCodeString:"",
 
       contentTextAlert: "",
       isHideAlert: true,
@@ -230,9 +232,9 @@ export default {
     },
     /// Hàm thực hiện mở dialog chi tiết nhân viên
     /// createdBy NgocPham (24/02/2021)
-    showEmployeeProfileDetail(item, isUpdate){
+    async showEmployeeProfileDetail(item, isUpdate){
+      await this.$refs.EmployeeProfileDetail.ShowDetail(item, isUpdate, this.maxEmployeeCodeString);
       this.isHideDetail = false;
-      this.$refs.EmployeeProfileDetail.ShowDetail(item, isUpdate);
     },
     /// Hàm thực hiện gọi server để lấy dữ liệu
     /// createdBy NgocPham (24/02/2021)
@@ -243,6 +245,18 @@ export default {
           this.listEmployee = response.data.Data,
           this.totalRecords = response.data.Data.length
         ));
+        //Vòng for để lấy ra mã nhân viên cao nhất
+        let number = 0;
+        this.listEmployee.forEach(employee => {
+
+          number = Number(employee.EmployeeCode.substring(2, employee.EmployeeCode.length));
+          if(number > this.maxEmployeeCode) this.maxEmployeeCode = number;
+
+        });
+
+        number = this.maxEmployeeCode + 1;
+        this.maxEmployeeCodeString =  "NV" + number; 
+        console.log("max code: ",this.maxEmployeeCodeString);
     },
     /// Hàm thực hiện đóng các dialog/ popup
     /// createdBy NgocPham (24/02/2021)

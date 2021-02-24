@@ -73,6 +73,7 @@ export default {
 }
 
 .dialog-modal {
+  z-index: 4;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -83,6 +84,7 @@ export default {
 }
 
 .dialog-content {
+  z-index: 5;
   position: fixed;
   border-radius: 5px;
   width: 500px;

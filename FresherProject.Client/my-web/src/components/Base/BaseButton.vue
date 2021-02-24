@@ -68,7 +68,7 @@ export default {
 .m-btn {
     display: flex;
     align-items: center;
-    border-radius: 2px;
+    border-radius: 4px;
     height: 40px;
     font-size: 13px;
     color: #ffffff;

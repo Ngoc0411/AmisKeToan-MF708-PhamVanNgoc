@@ -14,16 +14,16 @@ namespace FresherProject.API.Controllers
     [ApiController]
     public class BaseEntitiesController<T> : ControllerBase
     {
-        #region Khai báo và khởi tạo
+        #region Declare
         IBaseService<T> _baseService;
-
+        #endregion
+        #region Constructor
         public BaseEntitiesController(IBaseService<T> baseService)
         {
             _baseService = baseService;
         }
         #endregion
-
-        #region Các hàm được cài đặt
+        #region Method
         // GET: api/<TsController>
         /// <summary>
         /// API thực hiện lấy ds T

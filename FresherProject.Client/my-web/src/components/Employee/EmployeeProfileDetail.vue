@@ -30,6 +30,7 @@
                   v-model="Employee.EmployeeCode"
                   autofocus
                   tabindex="1"
+                  ref="txtEmployeeCode"
                 />
                 <small style="color: red;" v-if="isHideErrorEmployeeCode == false">{{ errorMsgEmployeeCode }}</small>
               </div>
@@ -343,16 +344,14 @@
           </button> -->
           <div class="dialog-footer-right">
             <BaseButton 
-              text="Cập nhật" 
+              text="Cất" 
               class="btn-Save"
-              v-if="isUpdate"
-              @clickOnButton="saveEmployee()"
+              @clickOnButton="saveEmployee(false)"
             />
             <BaseButton 
-              text="Thêm mới" 
-              class="btn-Save"
-              v-if="isUpdate==false"
-              @clickOnButton="saveEmployee()"
+              text="Cất và Thêm" 
+              class="btn-SaveAndAdd"
+              @clickOnButton="saveEmployee(true)"
             />
           </div>
         </div>
@@ -395,6 +394,7 @@ export default {
       errorMsgEmployeeCode: "",
       errorMsgFullName:"",
       isHideErrorEmployeeDepartment: true,
+      maxEmployeeCode: 0,
 
       contentTextAlert: "",
       isHideAlert: true,
@@ -429,32 +429,45 @@ export default {
       this.imageAlert = "image-failure";
       this.colorAlert = "failure";
     },
+    //Focus vào ô nhập mã nhân viên
+    /// createdBy NgocPham (24/02/2021)
+    focusToEmployeeCode(){
+      this.$refs.txtEmployeeCode.focus();
+    },
+    ganEmployeeCodeMax(maxEmployeeCode){
+      console.log("max code o detail: ", maxEmployeeCode);
+      this.Employee.EmployeeCode = maxEmployeeCode;
+      console.log("max code o detail: ", this.Employee.EmployeeCode);
+    },
     /// Hàm thực hiện gán các giá trị của đối tượng lên dialog chi tiết và hiện form chi tiết lên
     /// createdBy NgocPham (24/02/2021)
-    ShowDetail(item, isUpdate) {
-      this.Employee = item;
-      this.isUpdate = isUpdate;
+    async ShowDetail(item, isUpdate, maxEmployeeCode) {
+      this.Employee = await item;
+      this.isUpdate = await isUpdate;
+
       if(isUpdate){
-        this.Employee.IssuedOn = this.formatDate(this.Employee.IssuedOn);
-        this.Employee.DateOfBirth = this.formatDate(this.Employee.DateOfBirth);
+        this.Employee.IssuedOn = await this.formatDate(this.Employee.IssuedOn);
+        this.Employee.DateOfBirth = await this.formatDate(this.Employee.DateOfBirth);
       }else{
-        this.getEmployees();
-        this.getMaxEmployeeCode();
-        this.Employee.EmployeeCode = this.MaxEmployeeCode;
+        // await this.getEmployees();
+        //await this.getMaxEmployeeCode();
+        console.log(maxEmployeeCode);
+        //this.Employee.EmployeeCode = "maxEmployeeCode";
+        await this.ganEmployeeCodeMax(maxEmployeeCode);
       }
-      
+      this.focusToEmployeeCode();
     },
     /// Hàm thực hiện lấy ra mã nhân viên lớn nhất trong danh sách nhân viên
     /// createdBy NgocPham (24/02/2021)
-    async getMaxEmployeeCode() {
-      await axios
-        .get("https://localhost:44312/api/v1/employees")
-        .then((response) => (
-          this.MaxEmployeeCode = response.data.Data[0].EmployeeCode
-        ));
-        var number = Number(this.MaxEmployeeCode.substring(2, this.MaxEmployeeCode.length)) + 1;
-        this.MaxEmployeeCode =  this.MaxEmployeeCode.substring(0,2) + number;  
-    },
+    // async getMaxEmployeeCode() {
+    //   await axios
+    //     .get("https://localhost:44312/api/v1/employees")
+    //     .then((response) => (
+    //       this.MaxEmployeeCode = response.data.Data[0].EmployeeCode
+    //     ));
+    //     var number = Number(this.MaxEmployeeCode.substring(2, this.MaxEmployeeCode.length)) + 1;
+    //     this.MaxEmployeeCode =  this.MaxEmployeeCode.substring(0,2) + number;  
+    // },
     /// Hàm thực hiện ẩn popup
     /// createdBy NgocPham (24/02/2021)
     btnCancelOnClick() {
@@ -544,7 +557,7 @@ export default {
 
       
     },
-    async saveEmployee() {
+    async saveEmployee(isSaveAndAddContinue) {
       console.log(this.Employee);
 
       //Validate dữ liệu trước khi sửa/thêm mới
@@ -559,7 +572,7 @@ export default {
           ).then((response) => {
             console.log(response);
             //Ẩn form chi tiết
-            this.$emit("closePopup", true);
+            if(isSaveAndAddContinue === false) this.$emit("closePopup", true);
             //Mở thông báo thêm thành công
             this.openAlertSuccess("Cập nhật nhân viên thành công!");
           })
@@ -581,7 +594,7 @@ export default {
           ).then((response) => {
             console.log(response);
             //Ẩn form chi tiết
-            this.$emit("closePopup", true);
+            if(isSaveAndAddContinue === false) this.$emit("closePopup", true);
             //Mở thông báo thêm thành công
             this.openAlertSuccess("Đã thêm nhân viên thành công!");
           })
@@ -592,6 +605,15 @@ export default {
           console.log(response);
         }
         this.deleteErrorMsg();
+      }
+      else{
+        if(this.isUpdate){
+          //Mở thông báo xóa thất bại
+          this.openAlertFail("Cập nhật nhân viên thất bại!");
+        }else{
+          //Mở thông báo xóa thất bại
+          this.openAlertFail("Thêm nhân viên thất bại!");
+        }
       }
     },
     async getListEmployeeDepartment() {
@@ -627,11 +649,14 @@ export default {
   },
   created() {
     this.getListEmployeeDepartment();
-    this.getMaxEmployeeCode();
+    // this.getMaxEmployeeCode();
   },
 };
 </script>
 <style scoped>
+input-selected{
+  background-color: red;
+}
 .gender{
   display: flex;
   align-items: center;
@@ -779,10 +804,12 @@ td {
   left: 0;
   right: 0;
   background-color: black;
+  z-index: 2;
   opacity: 0.4;
 }
 
 .dialog-content {
+  z-index: 3;
   position: fixed;
   border-radius: 5px;
   width: 800px;
@@ -810,6 +837,7 @@ td {
 .dialog-footer .dialog-footer-right{
   position: absolute;
   right: 30px;
+  display: flex;
 }
 .text-align-right {
   text-align: right;
@@ -950,12 +978,23 @@ input::placeholder {
 .btn-Cancel:hover {
   background-color: #d2cfcf;
 }
-.btn-Save {
+.btn-SaveAndAdd {
   background-color: #19BA1C;
   color: #ffffff !important;
+  font-family: GoogleSans-Semibold;
+}
+.btn-Save {
+  color: #000000 !important;
+  font-family: GoogleSans-Semibold;
+  background-color: #ffffff;
+  border: 1px solid #b5b5b5;
+  margin-right: 10px;
+}
+.btn-SaveAndAdd:hover {
+  background-color: #1FDC22;
 }
 .btn-Save:hover {
-  background-color: #1FDC22;
+  background-color: #b5b5b5;
 }
 input:focus {
   border: 1px solid #01b075 !important;

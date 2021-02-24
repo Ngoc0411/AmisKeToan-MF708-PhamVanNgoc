@@ -12,12 +12,14 @@ namespace FresherProject.DataLayer.Database
 {
     public class DBConnector<T>: IDisposable
     {
-        #region Khai báo và khởi tạo
+        #region Declare
         protected static string connectionString = "Host=47.241.69.179; " +
             "Port=3306; User Id=nvmanh; password=12345678; " +
             "Database=MF708_PhamVanNgoc; Character Set=utf8;";
         //public static string connectionString;
-        IDbConnection dBConnection;
+        protected IDbConnection dBConnection;
+        #endregion
+        #region Constructor
         public DBConnector()
         {
             dBConnection = new MySqlConnection(connectionString);
@@ -27,7 +29,7 @@ namespace FresherProject.DataLayer.Database
             dBConnection.Close();
         }
         #endregion
-        #region Cài đặt các hàm
+        #region Method
         /// <summary>
         /// Get danh sách toàn bộ dữ liệu trong bảng
         /// </summary>
@@ -38,16 +40,6 @@ namespace FresherProject.DataLayer.Database
             var tableName = typeof(T).Name;
             var storeName = $"Proc_Get{tableName}s";
             var entity = dBConnection.Query<T>(storeName, commandType: CommandType.StoredProcedure);
-
-            if (tableName == "Employee")
-            {
-                var entitys = dBConnection.Query<Employee, EmployeeDepartment, Employee>(storeName, (e, department) =>
-                {
-                    e.EmployeeDepartment = department;
-                    return e;
-                }, splitOn: "EmployeeDepartmentId", commandType: CommandType.StoredProcedure);
-                return (IEnumerable<T>)entitys;
-            }
 
             return entity;
         }
@@ -79,16 +71,6 @@ namespace FresherProject.DataLayer.Database
             dynamicParameters.Add($"@{tableName}Id", id.ToString());
             var entity = dBConnection.Query<T>(storeName, dynamicParameters, commandType: CommandType.StoredProcedure);
 
-            if (tableName == "Employee")
-            {
-                var entitys = dBConnection.Query<Employee, EmployeeDepartment, Employee>(storeName, (e, department) =>
-                {
-                    e.EmployeeDepartment = department;
-                    return e;
-                }, dynamicParameters, splitOn: "EmployeeDepartmentId", commandType: CommandType.StoredProcedure);
-                return (IEnumerable<T>)entitys;
-            }
-
             return entity;
         }
         /// <summary>
@@ -102,16 +84,6 @@ namespace FresherProject.DataLayer.Database
             var tableName = typeof(T).Name;
             var storeName = $"proc_get{tableName}byfilter";
             var entity = dBConnection.Query<T>(storeName, new { filter = filter }, commandType: CommandType.StoredProcedure);
-
-            if (tableName == "Employee")
-            {
-                var entitys = dBConnection.Query<Employee, EmployeeDepartment, Employee>(storeName, (e, department) =>
-                {
-                    e.EmployeeDepartment = department;
-                    return e;
-                }, new { filter = filter }, splitOn: "EmployeeDepartmentId", commandType: CommandType.StoredProcedure);
-                return (IEnumerable<T>)entitys;
-            }
 
             return entity;
         }

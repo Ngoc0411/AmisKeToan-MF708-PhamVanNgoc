@@ -1,7 +1,9 @@
-﻿using FresherProject.Common;
+﻿using Dapper;
+using FresherProject.Common;
 using FresherProject.DataLayer.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace FresherProject.DataLayer.Database
@@ -12,9 +14,9 @@ namespace FresherProject.DataLayer.Database
         /// Lấy 100 nhân viên đầu tiên
         /// </summary>x
         /// <returns></returns>
-        public IEnumerable<EmployeeDepartment> GetEmployeeTop100()
-        {
-            return GetAllData("SELECT * FROM EmployeeDepartment LIMIT 2");
-        }
+        //public IEnumerable<EmployeeDepartment> GetEmployeeTop100()
+        //{
+        //    return GetAllData("SELECT * FROM EmployeeDepartment LIMIT 2");
+        //}
     }
 }

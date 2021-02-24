@@ -22,3 +22,15 @@ C:\Users\DELL\OneDrive\Máy tính\MF708PhamVanNgoc\FresherProject.API\FresherPro
 C:\Users\DELL\OneDrive\Máy tính\MF708PhamVanNgoc\FresherProject.API\FresherProject.DataLayer\bin\Debug\netcoreapp3.1\FresherProject.Common.dll
 C:\Users\DELL\OneDrive\Máy tính\MF708PhamVanNgoc\FresherProject.API\FresherProject.DataLayer\bin\Debug\netcoreapp3.1\FresherProject.Common.pdb
 C:\Users\DELL\OneDrive\Máy tính\MF708PhamVanNgoc\FresherProject.API\FresherProject.DataLayer\obj\Debug\netcoreapp3.1\FresherProject.DataLayer.csproj.CopyComplete
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.DataLayer\bin\Debug\netcoreapp3.1\FresherProject.DataLayer.deps.json
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.DataLayer\bin\Debug\netcoreapp3.1\FresherProject.DataLayer.dll
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.DataLayer\bin\Debug\netcoreapp3.1\FresherProject.DataLayer.pdb
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.DataLayer\bin\Debug\netcoreapp3.1\FresherProject.Common.dll
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.DataLayer\bin\Debug\netcoreapp3.1\FresherProject.Common.pdb
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.DataLayer\obj\Debug\netcoreapp3.1\FresherProject.DataLayer.csprojAssemblyReference.cache
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.DataLayer\obj\Debug\netcoreapp3.1\FresherProject.DataLayer.AssemblyInfoInputs.cache
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.DataLayer\obj\Debug\netcoreapp3.1\FresherProject.DataLayer.AssemblyInfo.cs
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.DataLayer\obj\Debug\netcoreapp3.1\FresherProject.DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.DataLayer\obj\Debug\netcoreapp3.1\FresherProject.DataLayer.csproj.CopyComplete
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.DataLayer\obj\Debug\netcoreapp3.1\FresherProject.DataLayer.dll
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.DataLayer\obj\Debug\netcoreapp3.1\FresherProject.DataLayer.pdb

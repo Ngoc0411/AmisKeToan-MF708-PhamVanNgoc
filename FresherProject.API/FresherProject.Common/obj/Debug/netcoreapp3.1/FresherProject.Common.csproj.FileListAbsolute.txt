@@ -7,3 +7,12 @@ D:\ThucTapMiSa\FresherProject.API\FresherProject.Common\obj\Debug\netcoreapp3.1\
 D:\ThucTapMiSa\FresherProject.API\FresherProject.Common\obj\Debug\netcoreapp3.1\FresherProject.Common.csproj.CoreCompileInputs.cache
 D:\ThucTapMiSa\FresherProject.API\FresherProject.Common\obj\Debug\netcoreapp3.1\FresherProject.Common.dll
 D:\ThucTapMiSa\FresherProject.API\FresherProject.Common\obj\Debug\netcoreapp3.1\FresherProject.Common.pdb
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.Common\bin\Debug\netcoreapp3.1\FresherProject.Common.deps.json
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.Common\bin\Debug\netcoreapp3.1\FresherProject.Common.dll
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.Common\bin\Debug\netcoreapp3.1\FresherProject.Common.pdb
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.Common\obj\Debug\netcoreapp3.1\FresherProject.Common.csprojAssemblyReference.cache
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.Common\obj\Debug\netcoreapp3.1\FresherProject.Common.AssemblyInfoInputs.cache
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.Common\obj\Debug\netcoreapp3.1\FresherProject.Common.AssemblyInfo.cs
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.Common\obj\Debug\netcoreapp3.1\FresherProject.Common.csproj.CoreCompileInputs.cache
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.Common\obj\Debug\netcoreapp3.1\FresherProject.Common.dll
+C:\Users\pvngoc\Desktop\FresherProject\MF708DanhGiaGD1\FresherProject.API\FresherProject.Common\obj\Debug\netcoreapp3.1\FresherProject.Common.pdb

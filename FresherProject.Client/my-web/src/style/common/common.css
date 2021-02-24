@@ -4,6 +4,7 @@ body {
     margin: 0;
     font-family: GoogleSans-Regular; 
     font-size: 13px;
+    overflow: hidden;
 }
 .router-view{
     width: 100%;
@@ -19,6 +20,10 @@ body {
 @font-face {
     font-family: 'GoogleSans-Italic';
     src: url('../../assets/content/fonts/notosans-italic.1c1aaac9.woff2') format('opentype');
+}
+@font-face {
+    font-family: 'GoogleSans-Semibold';
+    src: url('../../assets/content/fonts/notosans-semibold.df3e6dc4.woff2') format('opentype');
 }
 ::-webkit-input-placeholder {
    font-style: italic;

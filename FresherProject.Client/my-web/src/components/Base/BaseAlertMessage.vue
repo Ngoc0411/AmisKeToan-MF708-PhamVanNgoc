@@ -62,10 +62,10 @@ export default {
 
 <style scoped>
 .success{
-  background-color: #69e76b;
+  background-color: #a7e6a8;
 }
 .failure{
-  background-color: rgb(238, 64, 64);
+  background-color: rgb(212 148 148);;
 }
 .dialog-header-close {
   position: absolute;
@@ -99,9 +99,11 @@ export default {
   right: 0;
   background-color: black;
   opacity: 0.4;
+  z-index: 4;
 }
 
 .dialog-content {
+  z-index: 5;
   position: fixed;
   border-radius: 5px;
   width: 500px;

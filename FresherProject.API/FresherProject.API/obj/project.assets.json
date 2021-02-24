@@ -1820,19 +1820,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {}
+    "C:\\Users\\pvngoc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\OneDrive\\Máy tính\\MF708PhamVanNgoc\\FresherProject.API\\FresherProject.API\\FresherProject.API.csproj",
+      "projectUniqueName": "C:\\Users\\pvngoc\\Desktop\\FresherProject\\MF708DanhGiaGD1\\FresherProject.API\\FresherProject.API\\FresherProject.API.csproj",
       "projectName": "FresherProject.API",
-      "projectPath": "C:\\Users\\DELL\\OneDrive\\Máy tính\\MF708PhamVanNgoc\\FresherProject.API\\FresherProject.API\\FresherProject.API.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\OneDrive\\Máy tính\\MF708PhamVanNgoc\\FresherProject.API\\FresherProject.API\\obj\\",
+      "projectPath": "C:\\Users\\pvngoc\\Desktop\\FresherProject\\MF708DanhGiaGD1\\FresherProject.API\\FresherProject.API\\FresherProject.API.csproj",
+      "packagesPath": "C:\\Users\\pvngoc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pvngoc\\Desktop\\FresherProject\\MF708DanhGiaGD1\\FresherProject.API\\FresherProject.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pvngoc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1846,14 +1846,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\DELL\\OneDrive\\Máy tính\\MF708PhamVanNgoc\\FresherProject.API\\FresherProject.Common\\FresherProject.Common.csproj": {
-              "projectPath": "C:\\Users\\DELL\\OneDrive\\Máy tính\\MF708PhamVanNgoc\\FresherProject.API\\FresherProject.Common\\FresherProject.Common.csproj"
+            "C:\\Users\\pvngoc\\Desktop\\FresherProject\\MF708DanhGiaGD1\\FresherProject.API\\FresherProject.Common\\FresherProject.Common.csproj": {
+              "projectPath": "C:\\Users\\pvngoc\\Desktop\\FresherProject\\MF708DanhGiaGD1\\FresherProject.API\\FresherProject.Common\\FresherProject.Common.csproj"
             },
-            "C:\\Users\\DELL\\OneDrive\\Máy tính\\MF708PhamVanNgoc\\FresherProject.API\\FresherProject.DataLayer\\FresherProject.DataLayer.csproj": {
-              "projectPath": "C:\\Users\\DELL\\OneDrive\\Máy tính\\MF708PhamVanNgoc\\FresherProject.API\\FresherProject.DataLayer\\FresherProject.DataLayer.csproj"
+            "C:\\Users\\pvngoc\\Desktop\\FresherProject\\MF708DanhGiaGD1\\FresherProject.API\\FresherProject.DataLayer\\FresherProject.DataLayer.csproj": {
+              "projectPath": "C:\\Users\\pvngoc\\Desktop\\FresherProject\\MF708DanhGiaGD1\\FresherProject.API\\FresherProject.DataLayer\\FresherProject.DataLayer.csproj"
             },
-            "C:\\Users\\DELL\\OneDrive\\Máy tính\\MF708PhamVanNgoc\\FresherProject.API\\FresherProject.Service\\FresherProject.Service.csproj": {
-              "projectPath": "C:\\Users\\DELL\\OneDrive\\Máy tính\\MF708PhamVanNgoc\\FresherProject.API\\FresherProject.Service\\FresherProject.Service.csproj"
+            "C:\\Users\\pvngoc\\Desktop\\FresherProject\\MF708DanhGiaGD1\\FresherProject.API\\FresherProject.Service\\FresherProject.Service.csproj": {
+              "projectPath": "C:\\Users\\pvngoc\\Desktop\\FresherProject\\MF708DanhGiaGD1\\FresherProject.API\\FresherProject.Service\\FresherProject.Service.csproj"
             }
           }
         }
@@ -1915,7 +1915,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   },
